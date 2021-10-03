@@ -1,0 +1,97 @@
+@import '../../theme/brand-colours'
+
+@keyframes fadeIn
+  from
+    opacity: 0
+  to
+    opacity: 1
+
+.container
+  position: fixed
+  top: 0
+  left: 0
+  height: 100vh
+  width: 100vw
+  display: flex
+  justify-content: center
+  align-items: center
+  background-color: $grey-600
+  animation: fadeIn 0.3s
+
+.calendar
+  display: flex
+  align-items: center
+  flex-direction: column
+  background-color: $brand-white
+  padding: 24px
+  border: 1px solid $brand-blue-500
+  border-radius: 2px
+
+  > h3
+    font-weight: 600
+    margin-bottom: 6px
+
+.weekday
+  display: flex
+  justify-content: center
+  align-items: center
+
+.calendarDays
+  display: grid
+  grid-template-columns: repeat(7, 40px)
+  grid-auto-rows: 40px
+  gap: 4px
+  flex-grow: 1
+  margin-bottom: 16px
+
+  > button
+    border: 1px solid $brand-red-400
+    background-color: $brand-white
+    color: $brand-red-400
+    cursor: pointer
+    transition: background-color 0.2s, color 0.2s
+
+    &:hover
+      background-color: $brand-red-100
+
+    &:disabled
+      border: none
+      cursor: default
+      background-color: $grey-300
+      color: $grey-500
+
+    &.selected
+      background-color: $brand-red-400
+      color: $brand-white
+
+.actionButtons
+  display: flex
+  justify-content: center
+  width: 100%
+
+  > button
+    font-weight: 600
+    cursor: pointer
+    width: 100px
+
+    &.cancelButton
+      border: none
+      background-color: transparent
+      color: $grey-500
+      transition: color 0.2s
+      margin-right: 12px
+
+      &:hover
+        color: $grey-600
+
+    &.confirmButton
+      border: 1px solid $brand-red-400
+      border-radius: 2px
+      background-color: $brand-white
+      color: $brand-red-400
+      padding: 8px
+      box-shadow: 1px 1px 2px $grey-600
+      transition: background-color 0.2s
+
+      &:hover
+        background-color: $brand-red-100
